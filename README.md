@@ -1,11 +1,12 @@
-# Udyara: Cultivating Women Led Enterprises 🇮🇳
+# Udyara: Cultivating Women Led Enterprises 
+
 ### Trust-Based AI Agent for Women-Led Startup Policy Navigation
 
 Udyara is a policy-aware AI agent network designed to help women entrepreneurs in India 
 understand, verify, and navigate government startup incentives — starting with the 
 **Stand-Up India Scheme**.
 
-Built for hackathons to demonstrate:
+Built  to demonstrate:
 - AI agents
 - Trust-based decision support
 - Retrieval-Augmented Generation (RAG)
@@ -15,11 +16,10 @@ Built for hackathons to demonstrate:
 
 ## 🚩 Problem Statement
 
-Government startup policies are complex, fragmented, and difficult to interpret.
-Women entrepreneurs often miss out on benefits due to:
-- Poor policy awareness
-- Complex eligibility criteria
-- Lack of guided assistance
+- Government startup policies are complex, fragmented, and difficult to interpret.
+- Women entrepreneurs often miss out on benefits.
+- This gap results in underutilization of public funds, delayed entrepreneurship,
+and reduced participation of women in the startup ecosystem.
 
 ---
 
@@ -39,21 +39,26 @@ Udyara acts as a **Policy Navigator Agent** that:
 - 🔍 Eligibility reasoning
 - 🧾 Source-backed answers (no hallucination)
 - 🔐 Trust-first architecture
-- ⚡ Fast, hackathon-ready deployment
 
 ---
 
 ## 🏗 Architecture Overview
 
 ```
-    User → Frontend (React / Next.js)
-    → FastAPI Backend
-    → RAG Pipeline
-    ├── FAISS Vector DB
-    ├── Local Embeddings (Sentence Transformers)
-    └── Gemini LLM (Answer Generation)
+User Query
+   ↓
+Frontend (React / Next.js)
+   ↓
+FastAPI Backend
+   ↓
+RAG Pipeline
+   ├── Policy PDFs
+   ├── Sentence-Transformer Embeddings
+   ├── FAISS Vector Store
+   └── Gemini LLM (response synthesis)
 ```
 
+## Flow
 ```
 PDF (policy)
    ↓
@@ -66,10 +71,12 @@ Retriever
 Gemini LLM (answers)
 ```
 
-
 ---
 
 ## 🧪 Demo Use Cases
+
+These queries demonstrate real-world policy discovery, eligibility validation,
+and benefit awareness for first-time women founders.
 
 - "Am I eligible for Stand-Up India as a woman founder?"
 - "What documents are required?"
@@ -78,25 +85,26 @@ Gemini LLM (answers)
 
 ---
 
+
 ## 🚀 Tech Stack
 
-**Frontend**
-- React / Next.js
-- Tailwind CSS
+| Layer        | Technology Used | Purpose |
+|-------------|-----------------|---------|
+| Frontend    | React           | User interaction (chat-based UI) |
+| Backend     | FastAPI         | API handling & orchestration |
+| AI Pipeline | LangChain       | RAG workflow management |
+| Embeddings  | Sentence Transformers | Policy document vectorization |
+| Vector DB   | FAISS           | Fast similarity search |
+| LLM         | Gemini 2.5      | Answer synthesis & formatting |
+| Data Source | Govt Policy PDFs | Trusted knowledge base |
 
-**Backend**
-- FastAPI
-- LangChain
-- FAISS
-- Sentence Transformers
-- Gemini LLM
 
 ---
 
 ## 📦 Project Structure
 
 ```
-NitiAI/
+Udyara/
 ├── backend/
 ├── frontend/
 └── README.md
@@ -106,8 +114,9 @@ NitiAI/
 
 ## 🌱 Future Scope
 
-- Add more startup policies (Startup India, MSME)
-- Multi-policy eligibility comparison
-- State-specific incentives
-- DID-based credential verification
-- Agent-to-agent interoperability
+- Add more women-centric policies (MUDRA, PMEGP, Startup India)
+- Multilingual support (Hindi / regional languages)
+- Voice-based interaction for accessibility
+- State-specific incentive mapping
+- Verifiable credentials for document checks
+
