@@ -109,6 +109,50 @@ Udyara/
 ├── frontend/
 └── README.md
 ```
+---
+## ⚙️ Setup & Running (Prototype)
+
+### Backend Setup
+
+1. Navigate to backend directory
+```bash
+cd backend
+```
+
+2. Create virtual environment
+```
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+```
+
+3. Install dependencies
+```
+pip install -r requirements.txt
+```
+
+4. Create .env file
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+5. Ingest policy documents (one-time)
+```
+python -m app.rag.ingest
+```
+
+6. Run the backend
+
+```
+uvicorn app.main:app --reload
+```
+
+7. API available at:
+
+- http://127.0.0.1:8000
+- Swagger UI: http://127.0.0.1:8000/docs
+
+(Frontend UI is planned but not fully integrated in this prototype due to time constraints.
+Current interaction is demonstrated via API / Swagger UI)
 
 ---
 
