@@ -1,7 +1,7 @@
-# NitiAI 🇮🇳
+# Udyara: Cultivating Women Led Enterprises 🇮🇳
 ### Trust-Based AI Agent for Women-Led Startup Policy Navigation
 
-NitiAI is a policy-aware AI agent network designed to help women entrepreneurs in India 
+Udyara is a policy-aware AI agent network designed to help women entrepreneurs in India 
 understand, verify, and navigate government startup incentives — starting with the 
 **Stand-Up India Scheme**.
 
@@ -25,7 +25,7 @@ Women entrepreneurs often miss out on benefits due to:
 
 ## 💡 Solution
 
-NitiAI acts as a **Policy Navigator Agent** that:
+Udyara acts as a **Policy Navigator Agent** that:
 - Retrieves official policy documents
 - Understands eligibility criteria
 - Guides users through benefits & next steps
