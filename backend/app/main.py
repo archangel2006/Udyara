@@ -1,13 +1,13 @@
 from fastapi import FastAPI
-from app.rag.qa_chain import ask_nitiai
+from pydantic import BaseModel
+from app.agent import ask_agent
 
-app = FastAPI(title="NitiAI – Policy Navigator")
+app = FastAPI(title="NitiAI – Policy Intelligence Agent")
 
-@app.get("/")
-def health():
-    return {"status": "NitiAI running"}
+class Query(BaseModel):
+    question: str
 
-@app.post("/query")
-def query_agent(question: str):
-    answer = ask_nitiai(question)
+@app.post("/ask")
+def ask_policy(query: Query):
+    answer = ask_agent(query.question)
     return {"answer": answer}
