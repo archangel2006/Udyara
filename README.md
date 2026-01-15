@@ -54,6 +54,18 @@ NitiAI acts as a **Policy Navigator Agent** that:
     └── Gemini LLM (Answer Generation)
 ```
 
+```
+PDF (policy)
+   ↓
+Local Embeddings (sentence-transformers)
+   ↓
+FAISS Vector Store (files on disk)
+   ↓
+Retriever
+   ↓
+Gemini LLM (answers)
+```
+
 
 ---
 
