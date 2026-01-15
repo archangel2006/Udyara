@@ -57,8 +57,9 @@ RAG Pipeline
    ├── FAISS Vector Store
    └── Gemini LLM (response synthesis)
 ```
-
-## Flow
+- LLMs are used for interpretation and explanation, not decision-making
+  
+## 🔀 Flow
 ```
 PDF (policy)
    ↓
