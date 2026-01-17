@@ -1,4 +1,4 @@
-# NitiAI Frontend
+# Udyara AI Frontend
 
 User interface for interacting with the NitiAI policy agent.
 
