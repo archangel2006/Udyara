@@ -1,1 +1,137 @@
 @import "tailwindcss";
+
+/* Smooth transitions and animations */
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Custom animations */
+@layer utilities {
+  @keyframes slide-in-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-from-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .slide-in-from-left-4 {
+    animation: slide-in-from-left 0.5s ease-out;
+  }
+
+  .slide-in-from-right-4 {
+    animation: slide-in-from-right 0.5s ease-out;
+  }
+
+  .slide-in-from-top-2 {
+    animation: slide-in-from-top 0.3s ease-out;
+  }
+
+  .slide-in-from-bottom-2 {
+    animation: slide-in-from-bottom 0.3s ease-out;
+  }
+
+  .duration-300 {
+    animation-duration: 0.3s;
+  }
+
+  .duration-500 {
+    animation-duration: 0.5s;
+  }
+
+  .duration-700 {
+    animation-duration: 0.7s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+}
+
+/* Scrollbar styling */
+@layer utilities {
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-slate-700 rounded-lg hover:bg-gray-500 dark:hover:bg-slate-600;
+  }
+}
+
+/* Selection styling */
+@layer utilities {
+  ::selection {
+    @apply bg-indigo-600 text-white;
+  }
+
+  ::-moz-selection {
+    @apply bg-indigo-600 text-white;
+  }
+}
+
+/* Prevent layout shift on scrollbar appearance/disappearance */
+html {
+  overflow-y: scroll;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+

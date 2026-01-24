@@ -1,32 +1,195 @@
+import { HiMagnifyingGlass, HiCheckBadge, HiSparkles, HiQuestionMarkCircle } from 'react-icons/hi2';
+
 export default function Features() {
-    const features = [
+  const features = [
     {
-        title: 'Policy Interpretation',
-        desc: 'Simplifies complex government documents into understandable language.'
+      icon: HiSparkles,
+      title: 'Policy Interpretation',
+      description: 'Simplifies complex government documents into clear, understandable explanations. Users receive plain-language interpretations of policy clauses, eligibility rules, and procedural steps without altering the original meaning.',
+      highlight: 'Clarity Without Compromise'
     },
     {
-        title: 'Eligibility Verification',
-        desc: 'Checks eligibility conditions transparently without making decisions.'
+      icon: HiMagnifyingGlass,
+      title: 'Eligibility Verification',
+      description: 'Evaluates user-provided information against official eligibility criteria to indicate whether a scheme may apply. Highlights which conditions are met and which may require attention.',
+      highlight: 'Know Your Fit'
     },
     {
-        title: 'Benefit Matching',
-        desc: 'Ensures no applicable benefit is overlooked.'
+      icon: HiCheckBadge,
+      title: 'Benefit Matching',
+      description: 'Identifies all relevant benefits within a policy that you may qualify for, ensuring no applicable incentives are overlooked. Future versions expand across multiple schemes and agencies.',
+      highlight: 'Maximize Your Benefits'
     },
     {
-        title: 'Citizen Advocacy',
-        desc: 'Guided support for applications and appeals.'
+      icon: HiQuestionMarkCircle,
+      title: 'Citizen Advocacy & Guidance',
+      description: 'Provides structured guidance on required documents, application steps, common rejection reasons, and corrective actions. Empowers users to engage confidently with institutions.',
+      highlight: 'Support At Every Step'
     }
-    ];
+  ];
 
+  return (
+    <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
+      {/* Hero Section */}
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center space-y-6 animate-in fade-in duration-700">
+          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Core Capabilities</p>
+          </div>
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
+            Powerful Features Built for Citizens
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            PolicyNav combines AI interpretation, eligibility verification, and guided support to transform bureaucracy into clarity.
+          </p>
+        </div>
+      </section>
 
-    return (
-        <section className="px-8 py-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-            {features.map((f, i) => (
-                <div key={i} className="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 className="text-xl font-semibold text-secondary mb-2">{f.title}</h3>
-                    <p className="text-gray-600">{f.desc}</p>
+      {/* Features Grid */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={idx}
+                className="group p-10 rounded-2xl bg-gray-50 dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 hover:shadow-xl dark:hover:shadow-indigo-900/30 transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="space-y-6">
+                  <div className="w-16 h-16 bg-linear-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300\">
+                    <Icon className="text-white" size={32} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                      {feature.description}
+                    </p>
+                    <div className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
+                      <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                        {feature.highlight}
+                      </span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* How Features Work Together */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700\">
+          <div className="text-center space-y-8">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+              How Features Work Together
+            </h2>
+
+            <div className="grid md:grid-cols-4 gap-6 py-12">
+              <div className="text-center space-y-4">
+                <div className="w-20 h-20 mx-auto bg-linear-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl\">
+                  1
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">You Ask</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Share your profile & questions</p>
+              </div>
+
+              <div className="flex items-center justify-center">
+                <div className="text-3xl text-indigo-600 dark:text-indigo-400 hidden md:block">→</div>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="w-20 h-20 mx-auto bg-linear-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-2xl\">
+                  2
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">We Interpret</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Analyze policies & your fit</p>
+              </div>
+
+              <div className="flex items-center justify-center">
+                <div className="text-3xl text-indigo-600 dark:text-indigo-400 hidden md:block">→</div>
+              </div>
+
+              <div className="text-center space-y-4 md:col-span-2">
+                <div className="w-20 h-20 mx-auto bg-linear-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-2xl\">
+                  3
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">You Win</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Get clear guidance & take action</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Real-World Use Cases</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              See how PolicyNav helps citizens like you
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                scenario: 'First-time Founder',
+                query: '"Am I eligible for Stand-Up India as a woman founder?"',
+                benefit: 'Gets clarity on eligibility criteria and next steps'
+              },
+              {
+                scenario: 'Confused Applicant',
+                query: '"What documents are required for my application?"',
+                benefit: 'Receives complete, policy-backed document checklist'
+              },
+              {
+                scenario: 'Rejected Applicant',
+                query: '"Why was my application rejected? What can I do?"',
+                benefit: 'Understands rejection reasons & available appeals'
+              }
+            ].map((useCase, idx) => (
+              <div
+                key={idx}
+                className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all"
+              >
+                <div className="space-y-4">
+                  <div className="inline-block px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">
+                    <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                      {useCase.scenario}
+                    </span>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium italic">
+                    {useCase.query}
+                  </p>
+                  <div className="pt-4 border-t border-gray-200 dark:border-slate-800">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <span className="font-semibold">PolicyNav delivers:</span> {useCase.benefit}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
-        </section>
-    );
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-6\">
+          <h2 className="text-4xl font-bold">Experience These Features Firsthand</h2>
+          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
+            Launch our AI agent and explore how these capabilities can help you navigate policies
+          </p>
+          <button className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+            Try Agent Now
+          </button>
+        </div>
+      </section>
+    </div>
+  );
 }
