@@ -6,7 +6,7 @@ export default function ChatBot() {
     {
       id: 1,
       type: 'bot',
-      text: 'Hi! I\'m PolicyNav, your trusted policy guide. Ask me anything about government schemes, eligibility, or how to apply.',
+      text: 'Hi! I\'m Udyara, your trusted policy guide. Ask me anything about government schemes, eligibility, or how to apply.',
       timestamp: new Date()
     }
   ]);
@@ -61,7 +61,7 @@ export default function ChatBot() {
       {/* Header */}
       <div className="border-b border-gray-200 dark:border-slate-800 px-6 py-4 bg-gray-50 dark:bg-slate-900">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">PolicyNav Agent</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Udyara Agent</h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
             Get instant, trusted answers about government policies
           </p>
@@ -74,7 +74,7 @@ export default function ChatBot() {
           {messages.length === 1 && (
             <div className="py-12 text-center">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Welcome to PolicyNav
+                Welcome to Udyara
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 I can help you understand complex government policies, verify your eligibility, and guide you through the application process.
@@ -84,9 +84,9 @@ export default function ChatBot() {
                   <button
                     key={idx}
                     onClick={() => setInputValue(query)}
-                    className="p-4 text-left bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all group"
+                    className="p-4 text-left bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-teal-400 dark:hover:border-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-all group"
                   >
-                    <p className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                    <p className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">
                       {query}
                     </p>
                   </button>
@@ -103,12 +103,12 @@ export default function ChatBot() {
               <div
                 className={`max-w-2xl px-6 py-4 rounded-xl ${
                   message.type === 'user'
-                    ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-br-none'
+                    ? 'bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-br-none'
                     : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
                 }`}
               >
                 <p className="leading-relaxed text-sm sm:text-base">{message.text}</p>
-                <span className={`text-xs mt-2 block ${message.type === 'user' ? 'text-indigo-100' : 'text-gray-500 dark:text-gray-400'}`}>
+                <span className={`text-xs mt-2 block ${message.type === 'user' ? 'text-teal-100' : 'text-gray-500 dark:text-gray-400'}`}>
                   {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
@@ -119,9 +119,9 @@ export default function ChatBot() {
             <div className="flex justify-start">
               <div className="bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white px-6 py-4 rounded-xl rounded-bl-none border border-gray-200 dark:border-slate-800">
                 <div className="flex gap-2">
-                  <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
               </div>
             </div>
@@ -140,13 +140,13 @@ export default function ChatBot() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Ask me about policies, eligibility, documents..."
-              className="flex-1 px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500 transition-colors"
+              className="flex-1 px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-teal-500 dark:focus:border-teal-500 transition-colors"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
-              className="px-6 py-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-3 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <HiPaperAirplane size={20} />
               <span className="hidden sm:inline">Send</span>

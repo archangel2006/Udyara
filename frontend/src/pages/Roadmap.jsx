@@ -64,11 +64,11 @@ export default function Roadmap() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-in fade-in duration-700">
-          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Future Vision</p>
+          <div className="inline-block bg-teal-100 dark:bg-teal-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-teal-600 dark:text-teal-400">Future Vision</p>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
-            PolicyNav Roadmap
+            Udyara Roadmap
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             From Stand-Up India to nationwide policy guidance—our journey to democratize government benefits
@@ -88,7 +88,7 @@ export default function Roadmap() {
               <div key={idx} className="relative">
                 {/* Timeline connector */}
                 {idx < roadmapItems.length - 1 && (
-                  <div className="absolute left-12 top-32 h-8 border-l-2 border-dashed border-indigo-300 dark:border-indigo-700"></div>
+                  <div className="absolute left-12 top-32 h-8 border-l-2 border-dashed border-teal-300 dark:border-teal-700"></div>
                 )}
 
                 <div className="flex gap-8">
@@ -99,7 +99,7 @@ export default function Roadmap() {
                         isCompleted
                           ? 'bg-green-500 text-white'
                           : isInProgress
-                          ? 'bg-indigo-600 text-white'
+                          ? 'bg-teal-600 text-white'
                           : 'bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                       }`}
                     >
@@ -120,7 +120,7 @@ export default function Roadmap() {
                         isCompleted
                           ? 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800'
                           : isInProgress
-                          ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-400 dark:border-indigo-600'
+                          ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-400 dark:border-teal-600'
                           : 'bg-gray-50 dark:bg-slate-900 border-gray-300 dark:border-slate-800'
                       }`}
                     >
@@ -133,7 +133,7 @@ export default function Roadmap() {
                             isCompleted
                               ? 'text-green-700 dark:text-green-400'
                               : isInProgress
-                              ? 'text-indigo-700 dark:text-indigo-400'
+                              ? 'text-teal-700 dark:text-teal-400'
                               : 'text-gray-600 dark:text-gray-400'
                           }`}>
                             {item.status === 'completed'
@@ -147,7 +147,7 @@ export default function Roadmap() {
                           isCompleted
                             ? 'bg-green-200 dark:bg-green-900/50 text-green-900 dark:text-green-300'
                             : isInProgress
-                            ? 'bg-indigo-200 dark:bg-indigo-900/50 text-indigo-900 dark:text-indigo-300'
+                            ? 'bg-teal-200 dark:bg-teal-900/50 text-teal-900 dark:text-teal-300'
                             : 'bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-300'
                         }`}>
                           {item.timeline}
@@ -157,7 +157,7 @@ export default function Roadmap() {
                       <div className="space-y-3 pt-4 border-t border-gray-200 dark:border-gray-700">
                         {item.items.map((subItem, i) => (
                           <div key={i} className="flex items-start gap-3">
-                            <span className="shrink-0 w-2 h-2 bg-indigo-600 rounded-full mt-2"></span>
+                            <span className="shrink-0 w-2 h-2 bg-teal-600 rounded-full mt-2"></span>
                             <span className="text-gray-700 dark:text-gray-300">{subItem}</span>
                           </div>
                         ))}
@@ -173,7 +173,7 @@ export default function Roadmap() {
 
       {/* Long-term Vision */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
+        <div className="bg-linear-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
           <div className="space-y-8">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
               Our Long-Term Vision
@@ -185,7 +185,7 @@ export default function Roadmap() {
                   From Scheme Coverage to Impact
                 </h3>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  We're not just building a tool—we're building a movement. PolicyNav will eventually cover every major government scheme that helps citizens, ensuring no one is left behind due to bureaucratic complexity.
+                  We're not just building a tool—we're building a movement. Udyara will eventually cover every major government scheme that helps citizens, ensuring no one is left behind due to bureaucratic complexity.
                 </p>
                 <div className="space-y-3">
                   {[
@@ -196,7 +196,7 @@ export default function Roadmap() {
                     'Enable ₹1000+ Crore in benefits reach'
                   ].map((goal, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-2 h-2 bg-indigo-600 rounded-full mt-2"></span>
+                      <span className="flex-shrink-0 w-2 h-2 bg-teal-600 rounded-full mt-2"></span>
                       <span className="text-gray-700 dark:text-gray-300">{goal}</span>
                     </div>
                   ))}
@@ -208,10 +208,10 @@ export default function Roadmap() {
                   Why We're Serious
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Government policies lose billions in unutilized funds annually because eligible citizens don't know or can't navigate bureaucratic processes. PolicyNav is built to solve this systemic problem.
+                  Government policies lose billions in unutilized funds annually because eligible citizens don't know or can't navigate bureaucratic processes. Udyara is built to solve this systemic problem.
                 </p>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
+                  <div className="text-3xl font-bold text-teal-600 dark:text-teal-400 mb-2">
                     ₹1000+ Cr
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -226,12 +226,12 @@ export default function Roadmap() {
 
       {/* CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-6">
+        <div className="bg-linear-to-r from-teal-600 to-teal-700 rounded-3xl p-12 text-white space-y-6">
           <h2 className="text-4xl font-bold">Join Us on This Journey</h2>
-          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
-            Be part of the movement to democratize government benefits and support. Try PolicyNav today.
+          <p className="text-lg text-teal-100 max-w-2xl mx-auto">
+            Be part of the movement to democratize government benefits and support. Try Udyara today.
           </p>
-          <button className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <button className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
             Get Started Now
           </button>
         </div>

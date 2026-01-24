@@ -26,11 +26,11 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-linear-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+            <div className="w-10 h-10 bg-linear-to-br from-teal-600 to-teal-700 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
               <span className="text-white font-bold text-lg">P</span>
             </div>
-            <span className="font-bold text-lg hidden sm:inline bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              PolicyNav
+            <span className="font-bold text-lg hidden sm:inline bg-linear-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent">
+              Udyara
             </span>
           </Link>
 
@@ -42,7 +42,7 @@ export default function Navbar() {
                 to={item.path}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   isActive(item.path)
-                    ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400'
+                    ? 'bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800'
                 }`}
               >
@@ -65,7 +65,7 @@ export default function Navbar() {
             {/* CTA Button */}
             <Link
               to="/chatbot"
-              className="hidden sm:inline px-4 py-2 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 hover:scale-105"
+              className="hidden sm:inline px-4 py-2 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 hover:scale-105"
             >
               Try Agent
             </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 rounded-lg font-medium transition-all ${
                   isActive(item.path)
-                    ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400'
+                    ? 'bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800'
                 }`}
               >
@@ -100,7 +100,7 @@ export default function Navbar() {
             <Link
               to="/chatbot"
               onClick={() => setIsOpen(false)}
-              className="block px-4 py-2 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all text-center"
+              className="block px-4 py-2 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-medium hover:shadow-lg transition-all text-center"
             >
               Try Agent
             </Link>

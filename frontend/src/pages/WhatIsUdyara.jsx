@@ -6,11 +6,11 @@ export default function WhatIsUdyara() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-in fade-in duration-700">
-          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">About PolicyNav</p>
+          <div className="inline-block bg-teal-100 dark:bg-teal-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-teal-600 dark:text-teal-400">About Udyara</p>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
-            What is PolicyNav?
+            What is Udyara?
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A trust-first AI platform designed to transform complex government policies into actionable, citizen-friendly guidance.
@@ -20,25 +20,25 @@ export default function WhatIsUdyara() {
 
       {/* Definition */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
+        <div className="bg-linear-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            PolicyNav is a Policy Navigation Platform
+            Udyara is a Policy Navigation Platform
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-            PolicyNav acts as a <span className="font-semibold">digital bridge between policy intent and citizen action</span>. 
-            Unlike generic chatbots or advisory tools, PolicyNav interprets official government documents, 
+            Udyara acts as a <span className="font-semibold">digital bridge between policy intent and citizen action</span>. 
+            Unlike generic chatbots or advisory tools, Udyara interprets official government documents, 
             explains eligibility conditions, and guides users through benefits and next steps using trusted, 
             source-backed AI. Every response is grounded in official policy documents—no hallucination, 
             no speculation, no hidden logic.
           </p>
           <div className="grid md:grid-cols-3 gap-8 pt-8 border-t border-gray-300 dark:border-slate-700">
             <div className="space-y-4">
-              <HiSparkles className="text-indigo-600 dark:text-indigo-400" size={32} />
+              <HiSparkles className="text-teal-600 dark:text-teal-400" size={32} />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Transparent</h3>
               <p className="text-gray-600 dark:text-gray-400">Every answer is backed by official sources with full visibility into the reasoning process</p>
             </div>
             <div className="space-y-4">
-              <HiShieldCheck className="text-purple-600 dark:text-purple-400" size={32} />
+              <HiShieldCheck className="text-teal-600 dark:text-teal-400" size={32} />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Trustworthy</h3>
               <p className="text-gray-600 dark:text-gray-400">Built on responsible AI principles with zero tolerance for fabricated information</p>
             </div>
@@ -102,11 +102,11 @@ export default function WhatIsUdyara() {
 
       {/* Current Focus */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-8">
+        <div className="bg-linear-to-r from-teal-600 to-teal-700 rounded-3xl p-12 text-white space-y-8">
           <div>
             <h2 className="text-3xl font-bold mb-4">Current Focus</h2>
-            <p className="text-lg text-indigo-100 mb-8">
-              PolicyNav currently specializes in helping citizens navigate the following policies:
+            <p className="text-lg text-teal-100 mb-8">
+              Udyara currently specializes in helping citizens navigate the following policies:
             </p>
           </div>
 
@@ -143,18 +143,18 @@ export default function WhatIsUdyara() {
                     {policy.status}
                   </span>
                 </div>
-                <p className="text-indigo-100 text-sm">{policy.desc}</p>
+                <p className="text-teal-100 text-sm">{policy.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Trust PolicyNav */}
+      {/* Why Trust Udyara */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Why Trust PolicyNav</h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Why Trust Udyara</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
               Policy guidance directly impacts financial decisions and livelihoods. We're built on trust-first principles.
             </p>
@@ -174,7 +174,7 @@ export default function WhatIsUdyara() {
               },
               {
                 title: 'Never Replaces Authorities',
-                description: 'PolicyNav is assistive, not authoritative. We guide; final decisions rest with official institutions.',
+                description: 'Udyara is assistive, not authoritative. We guide; final decisions rest with official institutions.',
                 icon: '✓'
               },
               {
@@ -185,10 +185,10 @@ export default function WhatIsUdyara() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all"
+                className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-600 transition-all"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-linear-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
+                  <div className="w-12 h-12 bg-linear-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
                     {item.icon}
                   </div>
                   <div>
@@ -208,10 +208,10 @@ export default function WhatIsUdyara() {
 
       {/* Vision Statement */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700 space-y-6">
+        <div className="bg-linear-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700 space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            PolicyNav aims to become a trusted digital bridge between policy intent and citizen action — 
+            Udyara aims to become a trusted digital bridge between policy intent and citizen action — 
             ensuring that support designed for citizens actually reaches them, <span className="font-semibold">clearly, fairly, and transparently</span>.
           </p>
         </div>

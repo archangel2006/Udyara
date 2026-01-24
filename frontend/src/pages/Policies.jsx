@@ -119,8 +119,8 @@ export default function Policies() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-in fade-in duration-700">
-          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Supported Schemes</p>
+          <div className="inline-block bg-teal-100 dark:bg-teal-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-teal-600 dark:text-teal-400">Supported Schemes</p>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
             Government Policies We Cover
@@ -137,7 +137,7 @@ export default function Policies() {
           {policies.map((policy, idx) => (
             <div
               key={policy.id}
-              className="group border-2 border-gray-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-400 dark:hover:border-indigo-600 transition-all duration-300"
+              className="group border-2 border-gray-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:border-teal-400 dark:hover:border-teal-600 transition-all duration-300"
             >
               {/* Header */}
               <button
@@ -192,7 +192,7 @@ export default function Policies() {
                       <ul className="space-y-3">
                         {policy.highlights.map((highlight, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <span className="shrink-0 w-2 h-2 bg-indigo-600 rounded-full mt-2"></span>
+                            <span className="shrink-0 w-2 h-2 bg-teal-600 rounded-full mt-2"></span>
                             <span className="text-gray-700 dark:text-gray-300">{highlight}</span>
                           </li>
                         ))}
@@ -215,7 +215,7 @@ export default function Policies() {
 
                   {policy.status === 'active' && (
                     <div className="pt-6 border-t border-gray-200 dark:border-slate-800">
-                      <button className="px-6 py-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                      <button className="px-6 py-3 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
                         Check Eligibility with Agent
                       </button>
                     </div>
@@ -229,10 +229,10 @@ export default function Policies() {
 
       {/* Future Roadmap Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
+        <div className="bg-linear-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">More Coming Soon</h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-            We're continuously expanding PolicyNav to cover more government schemes:
+            We're continuously expanding Udyara to cover more government schemes:
           </p>
           <ul className="grid md:grid-cols-2 gap-4">
             {[
@@ -244,7 +244,7 @@ export default function Policies() {
               'Verified document checking'
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="shrink-0 w-2 h-2 bg-indigo-600 rounded-full mt-2"></span>
+                <span className="shrink-0 w-2 h-2 bg-teal-600 rounded-full mt-2"></span>
                 <span className="text-gray-700 dark:text-gray-300">{item}</span>
               </li>
             ))}
@@ -254,12 +254,12 @@ export default function Policies() {
 
       {/* CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-6">
+        <div className="bg-linear-to-r from-teal-600 to-teal-700 rounded-3xl p-12 text-white space-y-6">
           <h2 className="text-4xl font-bold">Find Your Perfect Policy Match</h2>
-          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
-            Let PolicyNav help you identify which schemes you qualify for and guide you through the application process
+          <p className="text-lg text-teal-100 max-w-2xl mx-auto">
+            Let Udyara help you identify which schemes you qualify for and guide you through the application process
           </p>
-          <button className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <button className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
             Start Policy Navigation
           </button>
         </div>

@@ -1,8 +1,8 @@
-# PolicyNav Frontend - Modern, Accessible, Trust-First UI
+# Udyara Frontend - Modern, Accessible, Trust-First UI
 
 ## 🎨 Design Philosophy
 
-PolicyNav's frontend is built with **trust, accessibility, and modern aesthetics** in mind:
+Udyara's frontend is built with **trust, accessibility, and modern aesthetics** in mind:
 
 - **Trust-First Design**: Clean, transparent interfaces that build confidence
 - **Accessibility**: WCAG 2.1 AA compliant with high contrast mode support
@@ -17,7 +17,7 @@ src/
 ├── App.jsx                 # Main app with routing & theme provider
 ├── pages/                  # Page components
 │   ├── Home.jsx           # Hero & problem statement
-│   ├── WhatIsUdyara.jsx   # About PolicyNav
+│   ├── WhatIsUdyara.jsx   # About Udyara
 │   ├── Features.jsx        # Core capabilities showcase
 │   ├── HowItWorks.jsx     # Technical pipeline explanation
 │   ├── WhyUdyara.jsx      # Trust principles & comparison
@@ -89,7 +89,7 @@ src/
 - Trust & transparency explanation
 
 ### Why Udyara
-- PolicyNav vs Generic Chatbots comparison table
+- Udyara vs Generic Chatbots comparison table
 - Trust principles breakdown
 - Why accuracy matters
 - Built for real users
@@ -317,4 +317,4 @@ npm run build
 
 ---
 
-**Built with ❤️ for PolicyNav - Empowering Citizens Through Transparent Governance**
+**Built with ❤️ for Udyara - Empowering Citizens Through Transparent Governance**

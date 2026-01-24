@@ -33,14 +33,14 @@ export default function Features() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-in fade-in duration-700">
-          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Core Capabilities</p>
+          <div className="inline-block bg-teal-100 dark:bg-teal-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-teal-600 dark:text-teal-400">Core Capabilities</p>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
             Powerful Features Built for Citizens
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            PolicyNav combines AI interpretation, eligibility verification, and guided support to transform bureaucracy into clarity.
+            Udyara combines AI interpretation, eligibility verification, and guided support to transform bureaucracy into clarity.
           </p>
         </div>
       </section>
@@ -53,10 +53,10 @@ export default function Features() {
             return (
               <div
                 key={idx}
-                className="group p-10 rounded-2xl bg-gray-50 dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 hover:shadow-xl dark:hover:shadow-indigo-900/30 transition-all duration-300 hover:-translate-y-2"
+                className="group p-10 rounded-2xl bg-gray-50 dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-600 hover:shadow-xl dark:hover:shadow-teal-900/30 transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="space-y-6">
-                  <div className="w-16 h-16 bg-linear-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300\">
+                  <div className="w-16 h-16 bg-linear-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Icon className="text-white" size={32} />
                   </div>
 
@@ -67,8 +67,8 @@ export default function Features() {
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                       {feature.description}
                     </p>
-                    <div className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                      <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                    <div className="inline-block px-4 py-2 bg-teal-100 dark:bg-teal-900/30 rounded-lg">
+                      <span className="text-sm font-semibold text-teal-600 dark:text-teal-400">
                         {feature.highlight}
                       </span>
                     </div>
@@ -82,7 +82,7 @@ export default function Features() {
 
       {/* How Features Work Together */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-linear-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700\">
+        <div className="bg-linear-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
           <div className="text-center space-y-8">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
               How Features Work Together
@@ -90,7 +90,7 @@ export default function Features() {
 
             <div className="grid md:grid-cols-4 gap-6 py-12">
               <div className="text-center space-y-4">
-                <div className="w-20 h-20 mx-auto bg-linear-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl\">
+                <div className="w-20 h-20 mx-auto bg-linear-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">
                   1
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">You Ask</h3>
@@ -98,11 +98,11 @@ export default function Features() {
               </div>
 
               <div className="flex items-center justify-center">
-                <div className="text-3xl text-indigo-600 dark:text-indigo-400 hidden md:block">→</div>
+                <div className="text-3xl text-teal-600 dark:text-teal-400 hidden md:block">→</div>
               </div>
 
               <div className="text-center space-y-4">
-                <div className="w-20 h-20 mx-auto bg-linear-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-2xl\">
+                <div className="w-20 h-20 mx-auto bg-linear-to-br from-teal-600 to-teal-700 rounded-full flex items-center justify-center text-white font-bold text-2xl">
                   2
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">We Interpret</h3>
@@ -110,7 +110,7 @@ export default function Features() {
               </div>
 
               <div className="flex items-center justify-center">
-                <div className="text-3xl text-indigo-600 dark:text-indigo-400 hidden md:block">→</div>
+                <div className="text-3xl text-teal-600 dark:text-teal-400 hidden md:block">→</div>
               </div>
 
               <div className="text-center space-y-4 md:col-span-2">
@@ -131,7 +131,7 @@ export default function Features() {
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Real-World Use Cases</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              See how PolicyNav helps citizens like you
+              See how Udyara helps citizens like you
             </p>
           </div>
 
@@ -155,11 +155,11 @@ export default function Features() {
             ].map((useCase, idx) => (
               <div
                 key={idx}
-                className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all"
+                className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-600 transition-all"
               >
                 <div className="space-y-4">
-                  <div className="inline-block px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">
-                    <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                  <div className="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                    <span className="text-sm font-semibold text-teal-600 dark:text-teal-400">
                       {useCase.scenario}
                     </span>
                   </div>
@@ -168,7 +168,7 @@ export default function Features() {
                   </p>
                   <div className="pt-4 border-t border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      <span className="font-semibold">PolicyNav delivers:</span> {useCase.benefit}
+                      <span className="font-semibold">Udyara delivers:</span> {useCase.benefit}
                     </p>
                   </div>
                 </div>
@@ -180,12 +180,12 @@ export default function Features() {
 
       {/* CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-6\">
+        <div className="bg-linear-to-r from-teal-600 to-teal-700 rounded-3xl p-12 text-white space-y-6">
           <h2 className="text-4xl font-bold">Experience These Features Firsthand</h2>
-          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
+          <p className="text-lg text-teal-100 max-w-2xl mx-auto">
             Launch our AI agent and explore how these capabilities can help you navigate policies
           </p>
-          <button className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <button className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
             Try Agent Now
           </button>
         </div>

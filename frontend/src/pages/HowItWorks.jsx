@@ -5,7 +5,7 @@ export default function HowItWorks() {
     {
       number: 1,
       title: 'Official Documents Ingested',
-      description: 'Government policies are securely added to PolicyNav\'s knowledge base with complete audit trails.'
+      description: 'Government policies are securely added to Udyara\'s knowledge base with complete audit trails.'
     },
     {
       number: 2,
@@ -34,11 +34,11 @@ export default function HowItWorks() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-in fade-in duration-700">
-          <div className="inline-block bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-full">
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Technical Excellence</p>
+          <div className="inline-block bg-teal-100 dark:bg-teal-900/30 px-4 py-2 rounded-full">
+            <p className="text-sm font-semibold text-teal-600 dark:text-teal-400">Technical Excellence</p>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
-            How PolicyNav Works
+            How Udyara Works
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A transparent, document-grounded AI pipeline that ensures every answer is accurate, sourced, and trustworthy.
@@ -50,7 +50,7 @@ export default function HowItWorks() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">The PolicyNav Pipeline</h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white">The Udyara Pipeline</h2>
           </div>
 
           <div className="space-y-6">
@@ -58,12 +58,12 @@ export default function HowItWorks() {
               <div key={idx} className="group">
                 <div className="flex gap-8 items-start animate-in fade-in slide-in-from-left-4 duration-500" style={{ animationDelay: `${idx * 100}ms` }}>
                   {/* Step Number */}
-                  <div className="shrink-0 w-20 h-20 bg-linear-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                  <div className="shrink-0 w-20 h-20 bg-linear-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                     {step.number}
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 pt-2 p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all duration-300">
+                  <div className="flex-1 pt-2 p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-600 transition-all duration-300">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                       {step.title}
                     </h3>
@@ -75,7 +75,7 @@ export default function HowItWorks() {
 
                 {/* Connector */}
                 {idx < steps.length - 1 && (
-                  <div className="ml-10 h-12 border-l-2 border-dashed border-indigo-300 dark:border-indigo-700 my-4"></div>
+                  <div className="ml-10 h-12 border-l-2 border-dashed border-teal-300 dark:border-teal-700 my-4"></div>
                 )}
               </div>
             ))}
@@ -85,7 +85,7 @@ export default function HowItWorks() {
 
       {/* Why This Approach */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
+        <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-12 border border-gray-200 dark:border-slate-700">
           <div className="space-y-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Why This Approach?</h2>
 
@@ -101,11 +101,11 @@ export default function HowItWorks() {
                 },
                 {
                   title: 'Continuous Accuracy',
-                  description: 'When policies update, PolicyNav\'s knowledge updates automatically. No outdated advice.'
+                  description: 'When policies update, Udyara\'s knowledge updates automatically. No outdated advice.'
                 }
               ].map((reason, idx) => (
                 <div key={idx} className="space-y-4 p-6 bg-white dark:bg-slate-950 rounded-xl border border-gray-200 dark:border-slate-800">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
                     <HiCheckCircle className="text-white" size={24} />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{reason.title}</h3>
@@ -123,14 +123,14 @@ export default function HowItWorks() {
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Under the Hood</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              How PolicyNav stays accurate and trustworthy
+              How Udyara stays accurate and trustworthy
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800">
               <div className="space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg"></div>
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg"></div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">Embedding Technology</h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   Policies are converted to semantic vectors using advanced language models, capturing meaning at a deep level.
@@ -140,7 +140,7 @@ export default function HowItWorks() {
 
             <div className="p-8 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800">
               <div className="space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg"></div>
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg"></div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">FAISS Vector Store</h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   Ultra-fast similarity search across policy documents ensures relevant information is found instantly.
@@ -173,12 +173,12 @@ export default function HowItWorks() {
 
       {/* CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-white space-y-6">
+        <div className="bg-linear-to-r from-teal-600 to-teal-700 rounded-3xl p-12 text-white space-y-6">
           <h2 className="text-4xl font-bold">See the System in Action</h2>
-          <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
-            Experience how PolicyNav transforms complex policies into clear, actionable guidance
+          <p className="text-lg text-teal-100 max-w-2xl mx-auto">
+            Experience how Udyara transforms complex policies into clear, actionable guidance
           </p>
-          <button className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <button className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
             Try Agent Now
           </button>
         </div>
