@@ -32,11 +32,11 @@ export default function Home() {
               </div>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
                 <span className="bg-linear-to-r from-teal-600 via-teal-600 to-teal-700 bg-clip-text text-transparent">
-                  Policy Navigator
+                  Trust-Based AI for Women-Led Enterprises
                 </span>
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-400 font-light">
-                Transform complex government policies into actionable guidance. <span className="font-semibold text-gray-900 dark:text-white">Trust-backed AI</span> helping citizens access benefits they deserve.
+                Udyara helps women entrepreneurs understand, verify, and navigate government startup policies using transparent, document-grounded AI.
               </p>
             </div>
 
