@@ -1,6 +1,15 @@
-import axios from 'axios';
+const BASE_URL = "http://127.0.0.1:8000";
 
+export async function askAgent(question) {
+  const res = await fetch(`${BASE_URL}/query`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question })
+  });
 
-export const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000'
-});
+  if (!res.ok) {
+    throw new Error("Server error");
+  }
+
+  return res.json();
+}

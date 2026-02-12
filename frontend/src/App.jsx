@@ -1,27 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import HowItWorks from './pages/HowItWorks';
-import Features from './pages/Features';
-import Policies from './pages/Policies';
-import Roadmap from './pages/Roadmap';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Features from "./pages/Features";
+import Policies from "./pages/Policies";
+import About from "./pages/About";
 
-
-export default function App() {
+function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-50 text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/features" element={<Features />} />
           <Route path="/policies" element={<Policies />} />
-          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
+
+export default App;
