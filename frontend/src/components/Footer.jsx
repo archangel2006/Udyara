@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+    <footer className=" border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
 
       <div className="max-w-7xl mx-auto px-10 lg:px-20 py-8">
 
@@ -30,8 +30,8 @@ export default function Footer() {
               <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                 <li><Link to="/" className="hover:text-teal-600 transition-colors">Home</Link></li>
                 <li><Link to="/agent" className="hover:text-teal-600 transition-colors">Check Eligibility</Link></li>
+                <li><Link to="/features" className="hover:text-teal-600 transition-colors">Features</Link></li>
                 <li><Link to="/policies" className="hover:text-teal-600 transition-colors">Policies Covered</Link></li>
-                <li><Link to="/faq" className="hover:text-teal-600 transition-colors">FAQ</Link></li>
               </ul>
             </div>
 
