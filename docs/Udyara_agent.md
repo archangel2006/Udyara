@@ -1,6 +1,6 @@
 # Why Udyara is More Than Just a Chatbot
 
-**Project Name:** Udyara – Cultivating Women-Led Enterprises  
+**Project Name:** Udyara - Cultivating Women-Led Enterprises  
 **Type:** Policy Navigator AI Agent 
 
 ---

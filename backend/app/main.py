@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.agent import ask_agent
 
-app = FastAPI(title="NitiAI – Policy Intelligence Agent")
+app = FastAPI(title="Udyara - Cultivating Women-Led Enterprises")
 
 class Query(BaseModel):
     question: str

@@ -36,7 +36,7 @@ const policies = [
 
     highlights: [
       "Type: Loan Scheme",
-      "Loan Amount: ₹10 lakh – ₹1 crore",
+      "Loan Amount: ₹10 lakh - ₹1 crore",
       "Eligibility: Women or SC/ST entrepreneurs (minimum 51% ownership required)",
       "Purpose: Starting a new manufacturing, service, or trading business",
       "Repayment: Up to 7 years + interest as per bank norms",
@@ -58,7 +58,7 @@ const policies = [
       "Loan Amount: Up to ₹10 lakh (Shishu, Kishor, Tarun categories)",
       "Eligibility: Non-corporate small businesses including women entrepreneurs",
       "Purpose: Starting or expanding small businesses",
-      "Repayment: 3–5 years + interest decided by bank",
+      "Repayment: 3-5 years + interest decided by bank",
     ],
 
     website: "https://www.mudra.org.in/",
