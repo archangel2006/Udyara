@@ -10,28 +10,32 @@ import Agent from "./pages/Agent";
 
 function Layout() {
   const location = useLocation();
+  const isAgentPage = location.pathname === "/agent";
 
   return (
-    <>
+    <div className="flex flex-col h-full">
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="/policies" element={<Policies />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/agent" element={<Agent />} />
-      </Routes>
+      <div className="flex-1 min-h-0">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/policies" element={<Policies />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/agent" element={<Agent />} />
+        </Routes>
+      </div>
 
-      {location.pathname !== "/agent" && <Footer />}
-    </>
+      {!isAgentPage && <Footer />}
+    </div>
   );
 }
+
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+      <div className="h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
         <Layout />
       </div>
     </BrowserRouter>

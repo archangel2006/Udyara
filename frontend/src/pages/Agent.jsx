@@ -49,7 +49,7 @@ export default function ChatBot() {
   ];
 
   return (
-    <div className="h-[calc(100vh-64px)] flex flex-col bg-white dark:bg-slate-950 transition-colors duration-300">
+    <div className="flex flex-col h-full min-h-0 bg-white dark:bg-slate-950 transition-colors duration-300">
   
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto px-6 ">
