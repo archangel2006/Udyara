@@ -145,7 +145,7 @@ const policies = [
 
 
 export default function Policies() {
-  const [expanded, setExpanded] = useState(0);
+  const [expanded, setExpanded] = useState(null);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">

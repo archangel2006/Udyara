@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
 
-      {/* This pushes footer down properly */}
       <div className="flex-grow">
 
         {/* ================= HERO ================= */}
@@ -45,25 +44,25 @@ export default function Home() {
 
               <Link
                 to="/policies"
-                className="border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300"
+                className="border border-gray-300 dark:border-gray-700 rounded-xl px-6 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300"
               >
                 View Supported Policies
               </Link>
             </div>
           </div>
 
-          <div className="bg-teal-50 dark:bg-gray-800 rounded-2xl p-8 flex justify-center">
+          <div className="bg-teal-50 dark:bg-gray-800 rounded-2xl p-6 flex justify-center">
             <img
               src="/hero.png"
               alt="Woman reviewing government documents"
-              className="max-h-[420px] object-contain"
+              className="max-h-[380px] object-contain"
             />
           </div>
         </section>
 
 
         {/* ================= HOW UDYARA HELPS YOU ================= */}
-        <section className="py-20">
+        <section className="py-16">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-14">
               How Udyara Helps You
@@ -91,9 +90,14 @@ export default function Home() {
                 return (
                   <div
                     key={i}
-                    className="group bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                    className="group rounded-2xl p-8 transition-all duration-300 bg-white
+                border border-gray-200
+                hover:shadow-[0_0_20px_0_hsl(173_80%_40%/0.12),0_4px_16px_-4px_hsl(173_80%_40%/0.1)]
+                hover:bg-teal-100/5
+                dark:bg-gray-900  dark:border-gray-800
+                  hover:-translate-y-1"
                   >
-                    <div className="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-12">
+                    <div className="w-12 h-12 rounded-full bg-teal-10 dark:bg-teal-900/40 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-12">
                       <Icon className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                     </div>
 
@@ -113,7 +117,7 @@ export default function Home() {
 
 
         {/* ================= HOW IT WORKS ================= */}
-        <section className="py-20 border-t border-gray-100 dark:border-gray-800">
+        <section className="py-10  border-t border-gray-100 dark:border-gray-800">
           <div className="max-w-6xl mx-auto px-6 text-center">
 
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-14">
@@ -157,11 +161,11 @@ export default function Home() {
                         <Icon className="w-6 h-6 text-teal-600 dark:text-teal-400 transition-transform duration-500 group-hover:scale-x-[-1]" />
                       </div>
 
-                      <h3 className="mt-5 text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="mt-3 text-lg font-semibold text-gray-900 dark:text-white">
                         {step.title}
                       </h3>
 
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 max-w-xs text-base leading-relaxed">
+                      <p className="mt-1 text-gray-600 dark:text-gray-400 max-w-xs text-base leading-relaxed">
                         {step.desc}
                       </p>
 
@@ -173,6 +177,49 @@ export default function Home() {
 
           </div>
         </section>
+
+      {/* ================= CTA Section ================= */}
+      <section className="py-6 px-4 max-w-7xl mx-auto text-center">
+        <div className="space-y-7 animate-in fade-in duration-700">
+
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Ready to Navigate Policies?
+          </h2>
+
+          {/*<p className="text-md text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Start with our AI agent and discover benefits you may qualify for.
+          </p>*/}
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pb-10">
+            
+            <Link
+              to="/agent"
+              className="group inline-flex items-center justify-center px-6 
+                bg-teal-700 hover:bg-teal-800 text-white 
+                rounded-xl font-semibold transition-all duration-300 
+                hover:shadow-lg hover:scale-102"
+            >
+              Launch AI Agent
+              <ArrowRight
+                className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                size={20}
+              />
+            </Link>
+
+            <Link
+              to="/policies"
+              className="inline-flex items-center justify-center px-8 py-4 
+                border-2 border-gray-300 dark:border-slate-700 
+                text-gray-900 dark:text-white rounded-xl font-semibold 
+                hover:bg-gray-50 dark:hover:bg-slate-900 transition-all duration-300"
+            >
+              Explore All Policies
+            </Link>
+
+          </div>
+
+        </div>
+      </section>
 
       </div>
 

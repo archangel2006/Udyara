@@ -85,7 +85,7 @@ export default function Features() {
           Udyara's capabilities designed for interpreting, evaluating, and navigating government schemes.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 pb-6">
           {features.map((f, i) => (
             <div
               key={i}
@@ -106,8 +106,7 @@ export default function Features() {
                 </div>
 
                 <div>
-                  {/* Increased title size to match capabilities */}
-                  <h3 className="text-base font-semibold mb-2">
+                  <h3 className="text-base font-semibold mb-">
                     {f.title}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -124,7 +123,7 @@ export default function Features() {
       {/* ================= CAPABILITIES (UNCHANGED SIZE) ================= */}
 
       <section className="max-w-6xl mx-auto px-6 pb-20">
-        <h1 className="mb-3 text-center text-4xl font-bold text-gray-900 dark:text-white">
+        <h1 className="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-white">
           Core Capabilities
         </h1>
 
@@ -139,6 +138,7 @@ export default function Features() {
                 border border-gray-200
                 hover:shadow-[0_0_20px_0_hsl(173_80%_40%/0.12),0_4px_16px_-4px_hsl(173_80%_40%/0.1)]
                 transition-all duration-300
+                hover:bg-teal-100/5
                 hover:-translate-y-1
               "
             >
