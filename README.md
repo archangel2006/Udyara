@@ -135,25 +135,47 @@ pip install -r requirements.txt
 ```
 GEMINI_API_KEY=your_api_key_here
 ```
-
-5. Ingest policy documents (one-time)
-```
-python -m app.rag.ingest
-```
-
-6. Run the backend
+5. Run the backend
 
 ```
 uvicorn app.main:app --reload
 ```
 
-7. API available at:
+6. API available at:
 
 - http://127.0.0.1:8000
 - Swagger UI: http://127.0.0.1:8000/docs
 
-(Frontend UI is planned but not fully integrated in this prototype due to time constraints.
-Current interaction is demonstrated via API / Swagger UI)
+
+### Frontend Setup
+
+1. Navigate to frontend directory
+```bash
+cd frontend
+```
+
+2. Install dependencies
+```
+npm install
+```
+
+3. Run the frontend
+
+```
+npm run dev
+```
+
+4. Website running at
+
+- http://localhost:5173/ 
+
+5. Explore frontend
+
+- **Try Agent**: to ask questions & instructions, interact with the agent
+- **Make sure backend & frontend are simultaneously running.**
+
+
+
 
 ---
 
