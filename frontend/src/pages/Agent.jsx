@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { HiPaperAirplane } from 'react-icons/hi2';
 import { askAgent } from '../services/api';
+import ReactMarkdown from 'react-markdown';
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([]);
@@ -38,6 +39,7 @@ export default function ChatBot() {
         id: Date.now() + 1,
         type: 'bot',
         text: data.answer || "No response received.",
+        sources: data.sources || [],
         timestamp: new Date(),
       };
 
@@ -59,10 +61,10 @@ export default function ChatBot() {
   };
 
   const suggestedQueries = [
-    'Am I eligible for Stand-Up India as a woman entrepreneur?',
-    'What documents do I need to apply?',
-    'How much loan can I get?',
-    'What if my application gets rejected?',
+    "Am I eligible for Stand-Up India as a woman entrepreneur?",
+    "What documents are required for Stand-Up India?",
+    "What is the loan limit under Stand-Up India?",
+    "How do I apply for Stand-Up India scheme?"
   ];
 
   return (
@@ -112,9 +114,32 @@ export default function ChatBot() {
                     : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
                 }`}
               >
-                <p className="leading-relaxed text-sm sm:text-base">
-                  {message.text}
-                </p>
+                <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
+                  <ReactMarkdown>
+                    {message.text}
+                  </ReactMarkdown>
+                </div>
+
+                {message.type === "bot" && message.sources?.length > 0 && (
+                  <div className="mt-4 text-xs border-t pt-2">
+                    <p className="font-medium mb-1">Sources:</p>
+                    <ul className="list-disc ml-4">
+                      {message.sources.map((s, index) => (
+                        <li key={index}>
+                          <a
+                            href={s.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                          >
+                            {s.title}
+                          </a>
+                          {s.page && ` – Page ${s.page}`}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <span
                   className={`text-xs mt-2 block ${

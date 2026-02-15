@@ -1,3 +1,4 @@
+#from unittest import result
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -32,10 +33,11 @@ def ask_policy(query: Query):
         if not query.question.strip():
             raise HTTPException(status_code=400, detail="Question cannot be empty")
 
-        answer = ask_agent(query.question)
+        result = ask_agent(query.question)
 
         return {
-            "answer": answer,
+            "answer": result["answer"],
+            "sources": result.get("sources", []),
             "status": "success"
         }
 

@@ -21,9 +21,7 @@ def ask_agent(question: str):
     print("🔍 Retrieving documents...")
 
     retriever = get_retriever()
-    #docs = retriever.get_relevant_documents(question)
     docs = retriever.invoke(question)
-
 
     print(f"📄 Retrieved {len(docs)} chunks")
 
@@ -45,4 +43,28 @@ Answer clearly.
     response = model.generate_content(prompt)
 
     print(f"✅ Gemini responded in {time.time() - start:.2f}s")
-    return response.text
+
+    # ✅ Extract sources from retrieved docs
+    sources = []
+    for d in docs:
+        page = d.metadata.get("page", None)
+        source_file = d.metadata.get("source", "Stand-Up India Policy")
+
+        sources.append({
+            "title": "Stand-Up India Official Guidelines",
+            "url": "https://www.standupmitra.in",
+            "page": page
+        })
+
+    # Remove duplicates
+    unique_sources = { (s["title"], s["url"], s["page"]) for s in sources }
+
+    formatted_sources = [
+        {"title": t, "url": u, "page": p}
+        for (t, u, p) in unique_sources
+    ]
+
+    return {
+        "answer": response.text,
+        "sources": formatted_sources
+    }
