@@ -1,6 +1,6 @@
-# NitiAI Backend
+# Udyara Backend
 
-FastAPI backend powering the NitiAI policy agent.
+FastAPI backend powering the Udyara policy agent.
 
 ---
 

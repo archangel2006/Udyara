@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { HiPaperAirplane } from 'react-icons/hi2';
+import { askAgent } from '../services/api';
+import ReactMarkdown from 'react-markdown';
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([]);
-
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
@@ -12,40 +13,58 @@ export default function ChatBot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isLoading) return;
 
-    const userMessage = {
-      id: messages.length + 1,
+    const newUserMessage = {
+      id: Date.now(),
       type: 'user',
       text: inputValue,
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev) => [...prev, newUserMessage]);
     setInputValue('');
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      const data = await askAgent(newUserMessage.text);
+
       const botMessage = {
-        id: messages.length + 2,
+        id: Date.now() + 1,
         type: 'bot',
-        text: "I'm analyzing this question. In a real deployment, I'd connect to the backend RAG system to pull relevant policy documents and provide verified guidance with source citations.",
+        text: data.answer || "No response received.",
+        sources: data.sources || [],
         timestamp: new Date(),
       };
 
       setMessages((prev) => [...prev, botMessage]);
+
+    } catch (error) {
+      const errorMessage = {
+        id: Date.now() + 2,
+        type: 'bot',
+        text: "⚠️ Unable to connect to backend. Make sure FastAPI is running.",
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, errorMessage]);
+
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const suggestedQueries = [
-    'Am I eligible for Stand-Up India as a woman entrepreneur?',
-    'What documents do I need to apply?',
-    'How much loan can I get?',
-    'What if my application gets rejected?',
+    "Am I eligible for Stand-Up India as a woman entrepreneur?",
+    "What documents are required for Stand-Up India?",
+    "What is the loan limit under Stand-Up India?",
+    "How do I apply for Stand-Up India scheme?"
   ];
 
   return (
@@ -95,9 +114,32 @@ export default function ChatBot() {
                     : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
                 }`}
               >
-                <p className="leading-relaxed text-sm sm:text-base">
-                  {message.text}
-                </p>
+                <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
+                  <ReactMarkdown>
+                    {message.text}
+                  </ReactMarkdown>
+                </div>
+
+                {message.type === "bot" && message.sources?.length > 0 && (
+                  <div className="mt-4 text-xs border-t pt-2">
+                    <p className="font-medium mb-1">Sources:</p>
+                    <ul className="list-disc ml-4">
+                      {message.sources.map((s, index) => (
+                        <li key={index}>
+                          <a
+                            href={s.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                          >
+                            {s.title}
+                          </a>
+                          {s.page && ` – Page ${s.page}`}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <span
                   className={`text-xs mt-2 block ${
