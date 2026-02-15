@@ -2,14 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { HiPaperAirplane } from 'react-icons/hi2';
 
 export default function ChatBot() {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      type: 'bot',
-      text: "Hi! I'm Udyara, your trusted policy guide. Ask me anything about government schemes, eligibility, or how to apply.",
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +54,7 @@ export default function ChatBot() {
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto px-6 ">
         <div className="max-w-4xl mx-auto space-y-4">
-          {messages.length === 1 && (
+          {messages.length === 0 && (
             <div className="py-6 text-center">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Welcome to Udyara
@@ -98,7 +91,7 @@ export default function ChatBot() {
               <div
                 className={`max-w-2xl px-6 py-4 rounded-xl ${
                   message.type === 'user'
-                    ? 'bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-br-none'
+                    ? 'bg-linear-to-r from-teal-600 to-teal-500 text-white rounded-br-none'
                     : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
                 }`}
               >
@@ -145,7 +138,7 @@ export default function ChatBot() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 px-6 py-4">
+      <div className="border-t border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 px-3 py-4">
         <form onSubmit={handleSendMessage} className="max-w-4xl mx-auto">
           <div className="flex gap-3">
             <input
@@ -153,14 +146,14 @@ export default function ChatBot() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Ask me about policies, eligibility, documents..."
-              className="flex-1 px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-teal-500 dark:focus:border-teal-500 transition-colors"
+              className="flex-1 px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-teal-500 dark:focus:border-teal-500 transition-colors"
               disabled={isLoading}
             />
 
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
-              className="px-6 py-3 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-2 bg-linear-to-r from-teal-600 to-teal-700 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               <HiPaperAirplane size={20} />
               <span className="hidden sm:inline">Send</span>
