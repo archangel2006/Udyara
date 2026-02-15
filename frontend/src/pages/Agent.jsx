@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { HiPaperAirplane } from 'react-icons/hi2';
+import { askAgent } from '../services/api';
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([]);
-
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
@@ -12,33 +12,50 @@ export default function ChatBot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isLoading) return;
 
-    const userMessage = {
-      id: messages.length + 1,
+    const newUserMessage = {
+      id: Date.now(),
       type: 'user',
       text: inputValue,
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev) => [...prev, newUserMessage]);
     setInputValue('');
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      const data = await askAgent(newUserMessage.text);
+
       const botMessage = {
-        id: messages.length + 2,
+        id: Date.now() + 1,
         type: 'bot',
-        text: "I'm analyzing this question. In a real deployment, I'd connect to the backend RAG system to pull relevant policy documents and provide verified guidance with source citations.",
+        text: data.answer || "No response received.",
         timestamp: new Date(),
       };
 
       setMessages((prev) => [...prev, botMessage]);
+
+    } catch (error) {
+      const errorMessage = {
+        id: Date.now() + 2,
+        type: 'bot',
+        text: "⚠️ Unable to connect to backend. Make sure FastAPI is running.",
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, errorMessage]);
+
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const suggestedQueries = [
