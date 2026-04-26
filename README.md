@@ -1,16 +1,16 @@
 # Udyara: Cultivating Women Led Enterprises 
 
-### Trust-Based AI Agent for Women-Led Startup Policy Navigation
+### Trustworthy RAG-Based Policy Navigation System for Women-Led Startups
 
-Udyara is a policy-aware AI agent network designed to help women entrepreneurs in India 
+Udyara is a policy-aware intelligent system designed to help women entrepreneurs in India 
 understand, verify, and navigate government startup incentives — starting with the 
 **Stand-Up India Scheme**.
 
 Built  to demonstrate:
-- AI agents
-- Trust-based decision support
 - Retrieval-Augmented Generation (RAG)
-- Decentralised policy intelligence
+- Trustworthy, source-backed responses
+- Semantic search over policy documents
+- Explainable decision support
 
 ---
 
@@ -25,7 +25,7 @@ and reduced participation of women in the startup ecosystem.
 
 ## 💡 Solution
 
-Udyara acts as a **Policy Navigator Agent** that:
+Udyara acts as a **Policy Navigator System** that:
 - Retrieves official policy documents
 - Understands eligibility criteria
 - Guides users through benefits & next steps
@@ -35,7 +35,7 @@ Udyara acts as a **Policy Navigator Agent** that:
 
 ## 🧠 Core Features
 
-- 📄 Policy-aware AI using RAG
+- 📄 RAG-based policy understanding system
 - 🔍 Eligibility reasoning
 - 🧾 Source-backed answers (no hallucination)
 - 🔐 Trust-first architecture
@@ -58,7 +58,7 @@ RAG Pipeline
    └── Gemini LLM (response synthesis)
 ```
 - LLMs are used for interpretation and explanation, not decision-making
-  
+- The system focuses on retrieval and explanation, not autonomous decision-making or action execution.
 ## 🔀 Flow
 ```
 PDF (policy)
@@ -186,4 +186,12 @@ npm run dev
 - Voice-based interaction for accessibility
 - State-specific incentive mapping
 - Verifiable credentials for document checks
+
+---
+
+## ✨ Why Udyara Stands Out
+- Eliminates policy confusion using semantic search
+- Ensures zero hallucination with source-backed responses
+- Designed specifically for women entrepreneurs in India
+- Bridges the gap between policy availability and accessibility
 
