@@ -106,10 +106,75 @@ and benefit awareness for first-time women founders.
 
 ```
 Udyara/
-├── backend/
-├── frontend/
+├── backend/                          # Python FastAPI backend
+│   ├── app/
+│   │   ├── agent.py                 # Core RAG agent logic
+│   │   ├── config.py                # Configuration & API keys
+│   │   ├── main.py                  # FastAPI routes & endpoints
+│   │   ├── data/                    # Raw policy PDF files
+│   │   ├── rag/                     # RAG pipeline modules
+│   │   │   ├── ingest.py           # PDF processing & text chunking
+│   │   │   ├── retriever.py        # Semantic search retrieval logic
+│   │   │   └── qa_chain.py         # Question-answering chain
+│   │   └── vectorstore/            # FAISS vector database
+│   │       └── index.faiss         # Persisted embeddings index
+│   └── requirements.txt             # Python dependencies
+│
+├── frontend/                         # React Vite frontend
+│   ├── src/
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── pages/                  # Page components
+│   │   │   ├── Home.jsx
+│   │   │   ├── Agent.jsx           # Main chat interface
+│   │   │   ├── About.jsx
+│   │   │   ├── Features.jsx
+│   │   │   └── Policies.jsx
+│   │   ├── services/               # API communication
+│   │   │   └── api.js             # Axios calls to backend
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── App.css
+│   │   └── index.css
+│   ├── public/                      # Static assets
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── eslint.config.js
+│
+├── details/                         # 📚 INTERVIEW PREP DOCUMENTATION
+│   ├── 01-PROJECT-OVERVIEW.md      # Executive summary, STAR method, SWOT analysis, setup
+│   ├── 02-ARCHITECTURE.md          # System architecture & complete data flow
+│   ├── 03-TECH-STACK.md            # Technology breakdown (FAISS, FastAPI, etc.)
+│   ├── 04-KEY-CONCEPTS.md          # Concepts explained simply (RAG, embeddings, etc.)
+│   └── 05-INTERVIEW-TALKING-POINTS.md  # Q&A prep & interview scenarios
+│
+├── docs/
+│   └── Udyara_agent.md
+│
+├── LICENSE
 └── README.md
 ```
+
+---
+
+## 📚 Interview Preparation
+
+**NEW:** Comprehensive documentation for explaining this project to recruiters!
+
+If you're using Udyara on your resume, check out the `details/` folder:
+
+- **🎯 START HERE**: [00-INTERVIEW-CHECKLIST.md](details/00-INTERVIEW-CHECKLIST.md) - Before interview prep checklist & quick reference
+- **Start here**: [01-PROJECT-OVERVIEW.md](details/01-PROJECT-OVERVIEW.md) - 30-second pitch, STAR method, SWOT analysis
+- **Deep dive**: [02-ARCHITECTURE.md](details/02-ARCHITECTURE.md) - System architecture & data flow diagram
+- **Tech explained**: [03-TECH-STACK.md](details/03-TECH-STACK.md) - FAISS, FastAPI, Sentence-Transformers, etc.
+- **Concepts**: [04-KEY-CONCEPTS.md](details/04-KEY-CONCEPTS.md) - RAG, embeddings, vector databases explained simply
+- **Interview prep**: [05-INTERVIEW-TALKING-POINTS.md](details/05-INTERVIEW-TALKING-POINTS.md) - Common Q&A, handling tough questions
+
+These docs are recruiter-friendly and require minimal technical background knowledge.
+
+---
 ---
 ## ⚙️ Setup & Running (Prototype)
 
