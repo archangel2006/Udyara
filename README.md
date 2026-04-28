@@ -106,8 +106,26 @@ and benefit awareness for first-time women founders.
 
 ```
 Udyara/
-├── backend/
-├── frontend/
+├── frontend/                 # React UI - Chat interface
+│   ├── src/
+│   │   ├── components/       # Navbar, Footer components
+│   │   ├── pages/           # Home, Agent, About, Features pages
+│   │   └── services/        # API calls to backend
+│   └── package.json         # Frontend dependencies
+│
+├── backend/                  # FastAPI application
+│   ├── app/
+│   │   ├── agent.py         # Core agent logic (question answering)
+│   │   ├── config.py        # Configuration (API keys, settings)
+│   │   ├── main.py          # FastAPI routes and endpoints
+│   │   ├── data/            # Raw PDF files for ingestion
+│   │   ├── rag/             # RAG pipeline
+│   │   │   ├── ingest.py    # PDF processing and chunking
+│   │   │   ├── retriever.py # Semantic search retrieval logic
+│   │   │   └── qa_chain.py  # Question-answering chain
+│   │   └── vectorstore/     # FAISS vector database
+│   │       └── index.faiss  # Persisted embeddings
+│   └── requirements.txt     # Backend dependencies
 └── README.md
 ```
 ---
