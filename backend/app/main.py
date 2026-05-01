@@ -19,6 +19,10 @@ app.add_middleware(
 class Query(BaseModel):
     question: str
 
+@app.get("/")
+def root():
+    return {"message": "Udyara API is running successfully"}
+
 @app.get("/health")
 def health():
     return {"status": "healthy"}
