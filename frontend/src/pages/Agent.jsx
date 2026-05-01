@@ -3,11 +3,12 @@ import { HiPaperAirplane } from 'react-icons/hi2';
 import { askAgent } from '../services/api';
 import ReactMarkdown from 'react-markdown';
 
-export default function ChatBot() {
-  const [messages, setMessages] = useState([]);
+export default function ChatBot({ activeChat, onUpdateMessages }) {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
+  const messages = activeChat?.messages || [];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -28,12 +29,14 @@ export default function ChatBot() {
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, newUserMessage]);
+    const updatedMessages = [...messages, newUserMessage];
+    onUpdateMessages(updatedMessages);
     setInputValue('');
     setIsLoading(true);
 
     try {
-      const data = await askAgent(newUserMessage.text);
+      // Pass 'messages' (previous history) NOT 'updatedMessages' (current question is sent separately)
+      const data = await askAgent(newUserMessage.text, messages);
 
       const botMessage = {
         id: Date.now() + 1,
@@ -43,7 +46,7 @@ export default function ChatBot() {
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [...prev, botMessage]);
+      onUpdateMessages([...updatedMessages, botMessage]);
 
     } catch (error) {
       const errorMessage = {
@@ -53,7 +56,7 @@ export default function ChatBot() {
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [...prev, errorMessage]);
+      onUpdateMessages([...updatedMessages, errorMessage]);
 
     } finally {
       setIsLoading(false);
@@ -69,7 +72,7 @@ export default function ChatBot() {
 
   return (
     <div className="flex flex-col h-full min-h-0 bg-white dark:bg-slate-950 transition-colors duration-300">
-  
+
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto px-6 ">
         <div className="max-w-4xl mx-auto space-y-4">
@@ -101,18 +104,16 @@ export default function ChatBot() {
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${
-                message.type === 'user'
-                  ? 'justify-end'
-                  : 'justify-start'
-              }`}
+              className={`flex ${message.type === 'user'
+                ? 'justify-end'
+                : 'justify-start'
+                }`}
             >
               <div
-                className={`max-w-2xl px-6 py-4 rounded-xl ${
-                  message.type === 'user'
-                    ? 'bg-linear-to-r from-teal-600 to-teal-500 text-white rounded-br-none'
-                    : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
-                }`}
+                className={`max-w-2xl px-6 py-4 rounded-xl ${message.type === 'user'
+                  ? 'bg-linear-to-r from-teal-600 to-teal-500 text-white rounded-br-none'
+                  : 'bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-white rounded-bl-none border border-gray-200 dark:border-slate-800'
+                  }`}
               >
                 <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
                   <ReactMarkdown>
@@ -142,13 +143,12 @@ export default function ChatBot() {
                 )}
 
                 <span
-                  className={`text-xs mt-2 block ${
-                    message.type === 'user'
-                      ? 'text-teal-100'
-                      : 'text-gray-500 dark:text-gray-400'
-                  }`}
+                  className={`text-xs mt-2 block ${message.type === 'user'
+                    ? 'text-teal-100'
+                    : 'text-gray-500 dark:text-gray-400'
+                    }`}
                 >
-                  {message.timestamp.toLocaleTimeString([], {
+                  {new Date(message.timestamp).toLocaleTimeString([], {
                     hour: '2-digit',
                     minute: '2-digit',
                   })}

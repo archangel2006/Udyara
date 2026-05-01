@@ -1,11 +1,10 @@
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from app.config import GEMINI_API_KEY
 from app.rag.retriever import get_retriever
 import time
 
-genai.configure(api_key=GEMINI_API_KEY)
-
-model = genai.GenerativeModel("gemini-1.5-flash")
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 SYSTEM_PROMPT = """
 You are Udyara, a policy intelligence agent focused on supporting women entrepreneurs in India.
@@ -16,7 +15,7 @@ Answer ONLY from the provided policy context related to women-led startups, sche
 - If applicable, mention other government schemes that may complement the answer.
 """
 
-def ask_agent(question: str):
+def ask_agent(question: str, history: list = []):
     start = time.time()
     print("🔍 Retrieving documents...")
 
@@ -27,24 +26,33 @@ def ask_agent(question: str):
 
     context = "\n\n".join([d.page_content[:800] for d in docs])
 
-    prompt = f"""
-{SYSTEM_PROMPT}
+    # Format components for the new SDK
+    # history is already formatted as [{"role": "user", "parts": ["..."]}, ...]
+    # We append the current query at the end
+    full_query = f"Policy Context:\n{context}\n\nQuestion: {question}"
+    
+    contents = []
+    for h in history:
+        # Map existing history format to new SDK Content objects
+        # We assume h["parts"] is a list of strings
+        contents.append(types.Content(role=h["role"], parts=[types.Part(text=p) for p in h["parts"]]))
+    
+    # Append the new user message
+    contents.append(types.Content(role="user", parts=[types.Part(text=full_query)]))
 
-Policy Context:
-{context}
-
-Question:
-{question}
-
-Answer clearly.
-"""
-
-    print("🤖 Calling Gemini...")
-    response = model.generate_content(prompt)
+    print("🤖 Calling Gemini (New SDK)...")
+    
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=contents,
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+        )
+    )
 
     print(f"✅ Gemini responded in {time.time() - start:.2f}s")
 
-    # ✅ Extract sources from retrieved docs
+    # Extract sources from retrieved docs
     sources = []
     for d in docs:
         page = d.metadata.get("page", None)

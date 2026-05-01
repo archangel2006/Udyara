@@ -1,68 +1,51 @@
-# Phase 1B: Contextual LLM Memory
+# Phase 1B: Contextual LLM Memory (Final)
 
-This phase enables the AI to remember the context of the current conversation by passing previous messages back to Gemini.
+This phase enables the AI to "remember" the context of a conversation, making it a true intelligent assistant rather than a one-off query tool.
 
-## 1. Update Backend `ask_agent`
-Modify `backend/app/agent.py` to use Gemini's `ChatSession`.
+## 1. Backend: Gemini Chat Session (`agent.py`)
+Instead of single completions, we use Gemini's `start_chat` method. This maintains an internal state of the conversation.
 
 ```python
 def ask_agent(question: str, history: list = []):
-    # Convert history into Gemini format
-    # history = [{"role": "user", "parts": "hi"}, {"role": "model", "parts": "hello"}]
-    
+    # Pass existing history to start the chat session
     chat = model.start_chat(history=history)
-    
-    # Send message with context
     response = chat.send_message(question)
-    
     return {
         "answer": response.text,
-        "sources": [...] # existing source logic
+        "sources": ...
     }
 ```
 
-## 2. Update FastAPI Route
-Modify `backend/app/main.py` to accept history in the request body.
+## 2. API Schema Update (`main.py`)
+The `/ask` endpoint now accepts an optional `history` array in the request body.
 
 ```python
-class Message(BaseModel):
-    role: str
-    content: str
-
 class Query(BaseModel):
     question: str
-    history: list[Message] = [] # Optional history
-
-@app.post("/ask")
-async def ask_policy(query: Query):
-    # Pass query.history to ask_agent
-    # Need to map role 'bot' -> 'model' for Gemini
-    formatted_history = []
-    for m in query.history:
-        role = "user" if m.role == "user" else "model"
-        formatted_history.append({"role": role, "parts": [m.content]})
-        
-    result = await asyncio.to_thread(ask_agent, query.question, formatted_history)
-    return result
+    history: list[dict] = [] # Format: [{"role": "user", "content": "..."}, ...]
 ```
 
-## 3. Update Frontend API Call
-Update `frontend/src/services/api.js` to send the background messages.
+## 3. Frontend: Hooking into State (`api.js`)
+We've already updated the frontend to pass the `activeChat.messages` directly to the `askAgent` service.
 
 ```javascript
-export async function askAgent(question, history = []) {
-  const response = await fetch(`${API_URL}/ask`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ 
-      question, 
-      history: history.map(m => ({ role: m.type, content: m.text })) 
-    }),
-  });
-  // ... rest of logic
-}
+// In Agent.jsx
+const data = await askAgent(newUserMessage.text, updatedMessages);
+
+// In api.js
+body: JSON.stringify({ 
+  question, 
+  history: history.map(m => ({ 
+    role: m.type === "user" ? "user" : "model", 
+    content: m.text 
+  })) 
+})
 ```
 
-## 4. Testing Phase 1B
-1. **Pronoun Test**: Ask "What is Stand-Up India?" then ask "How do I apply for **it**?". If the AI knows "it" refers to Stand-Up India, memory is working.
-2. **Context Retention**: Tell the AI "My name is Priya" and later ask "What is my name?".
+## 4. Key Improvements
+- **Contextual Awareness**: You can ask follow-up questions like "How much is the loan amount?" followed by "What are the interest rates for **it**?".
+- **Role Mapping**: Frontend using `user/bot` is automatically mapped to Gemini's expected `user/model` roles.
+
+## 5. Testing
+1. **The 'It' Test**: Ask about a specific policy, then ask a follow-up using "it" or "this scheme".
+2. **Sequential Logic**: Tell the AI "I am a woman founder with 51% stake" and later ask "Am I eligible based on what I told you?".

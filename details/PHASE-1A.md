@@ -1,91 +1,48 @@
-# Phase 1A: UI Sidebar & Local Memory
+# Phase 1A: UI Sidebar & Local Memory (Final)
 
-This phase focuses on creating the visual "Dashboard" experience and enabling state persistence using the browser's `localStorage`.
+This phase transformed Udyara into a multipage-like dashboard with sidebar history and browser persistence.
 
-## 1. Create Sidebar Component
-Create a new file `frontend/src/components/Sidebar.jsx`.
-
-```jsx
-import { HiPlus, HiChatBubbleLeft, HiPencil, HiTrash } from "react-icons/hi2";
-
-export default function Sidebar({ chats, activeChat, onSelectChat, onNewChat, onRenameChat, onDeleteChat }) {
-  return (
-    <div className="w-64 bg-gray-50 dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 flex flex-col h-full transition-all">
-      <div className="p-4">
-        <button
-          onClick={onNewChat}
-          className="w-full flex items-center gap-2 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-all font-medium"
-        >
-          <HiPlus /> New Chat
-        </button>
-      </div>
-      
-      <div className="flex-1 overflow-y-auto px-2 space-y-1">
-        {chats.map(chat => (
-          <div
-            key={chat.id}
-            onClick={() => onSelectChat(chat.id)}
-            className={`group flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${
-              activeChat === chat.id ? 'bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400' : 'hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300'
-            }`}
-          >
-            <div className="flex items-center gap-3 truncate">
-              <HiChatBubbleLeft className="shrink-0" />
-              <span className="truncate text-sm font-medium">{chat.title}</span>
-            </div>
-            
-            <div className="hidden group-hover:flex items-center gap-1">
-              <button onClick={(e) => { e.stopPropagation(); onRenameChat(chat.id); }} className="p-1 hover:text-teal-600"><HiPencil size={14} /></button>
-              <button onClick={(e) => { e.stopPropagation(); onDeleteChat(chat.id); }} className="p-1 hover:text-red-500"><HiTrash size={14} /></button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-```
-
-## 2. Update Layout in `App.jsx`
-Modify the `Layout` function to include the sidebar on the `/agent` page.
+## 1. Sidebar Component (`Sidebar.jsx`)
+Features a collapsible design with Framer Motion animations and responsive drawer behavior for mobile.
 
 ```jsx
-// In App.jsx
-if (isAgentPage) {
-  return (
-    <div className="h-screen flex flex-col overflow-hidden">
-      <Navbar />
-      <div className="flex flex-1 min-h-0 overflow-hidden">
-        {/* Sidebar will be placed here eventually or inside Agent.jsx */}
-        <div className="flex-1 overflow-hidden">
-          <Agent />
-        </div>
-      </div>
-    </div>
-  );
-}
+import { HiPlus, HiChatBubbleLeft, HiPencil, HiTrash, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Props: chats, activeChat, onSelectChat, onNewChat, onRenameChat, onDeleteChat, 
+// isCollapsed, setIsCollapsed, isOpen, setIsOpen
 ```
 
-## 3. Manage State in `Agent.jsx`
-Replace the simple `messages` state with a robust `chats` state that syncs with `localStorage`.
+## 2. State Lifting in `App.jsx`
+State is managed at the `Layout` level to allow both the Sidebar and the Agent page to access current chat data.
 
 ```javascript
-// New State Management logic for Agent.jsx
 const [chats, setChats] = useState(() => {
   const saved = localStorage.getItem('udyara_chats');
   return saved ? JSON.parse(saved) : [{ id: 'default', title: 'Welcome Chat', messages: [] }];
 });
 const [activeChatId, setActiveChatId] = useState('default');
-
-const activeChat = chats.find(c => c.id === activeChatId) || chats[0];
-
-// Save to localStorage whenever chats change
-useEffect(() => {
-  localStorage.setItem('udyara_chats', JSON.stringify(chats));
-}, [chats]);
+const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 ```
 
-## 4. Testing Phase 1A
-1. **Refresh persistence**: Send a message, refresh the page. The message should still be there.
-2. **Multiple Chats**: Click "New Chat". You should see a blank screen. Switch back to the previous chat, and your history should return.
-3. **Renaming**: Click the pencil icon, change the name, and ensure it updates in the sidebar.
+## 3. Agent Page Integration (`Agent.jsx`)
+The Agent component receives `activeChat` and `onUpdateMessages` as props. It focuses purely on message rendering and input handling.
+
+```javascript
+export default function ChatBot({ activeChat, onUpdateMessages }) {
+  const messages = activeChat.messages;
+  // ... handleSendMessage calls onUpdateMessages
+}
+```
+
+## 4. Key UX Improvements
+- **Collapsible Desktop Sidebar**: Uses a toggle to switch between a full and slim view.
+- **Mobile Drawer**: A "Chat History" button appears on mobile to toggle an overlay drawer.
+- **Auto-Close**: The sidebar closes automatically on mobile when a chat is selected.
+- **Ghost Styling**: The "New Chat" button uses a clean teal border instead of a heavy solid color.
+
+## 5. Testing
+1. **Responsiveness**: Verify that the "Chat History" button appears on mobile widths.
+2. **Persistence**: Refresh the page; all chat sessions and messages should remain.
+3. **State Sync**: Adding a message in `Agent.jsx` should immediately be reflected in the state saved to `localStorage`.
