@@ -5,7 +5,7 @@ import time
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 SYSTEM_PROMPT = """
 You are Udyara, a policy intelligence agent focused on supporting women entrepreneurs in India.
