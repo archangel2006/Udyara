@@ -2,7 +2,9 @@ import google.generativeai as genai
 from app.config import GEMINI_API_KEY
 from app.rag.retriever import get_retriever
 
+
 genai.configure(api_key=GEMINI_API_KEY)
+
 
 model = genai.GenerativeModel("gemini-2.0-flash")
 
@@ -28,3 +30,4 @@ Answer:
 
     response = model.generate_content(prompt)
     return response.text
+

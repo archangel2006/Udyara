@@ -6,6 +6,7 @@ from app.config import GEMINI_API_KEY
 import os
 
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF_PATH = os.path.join(BASE_DIR, "data", "standup_india.pdf")
 VECTORSTORE_PATH = os.path.join(BASE_DIR, "vectorstore")
