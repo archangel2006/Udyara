@@ -199,7 +199,7 @@ export default function Home() {
                 rounded-xl font-semibold transition-all duration-300 
                 hover:shadow-lg hover:scale-102"
             >
-              Launch AI Agent
+              Ask our Assistant
               <ArrowRight
                 className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
                 size={20}

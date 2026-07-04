@@ -119,7 +119,7 @@ export default function About() {
               />
 
               <p className="text-gray-600 text-sm leading-relaxed max-w-md">
-                Udyara is a policy-aware AI agent designed to help women entrepreneurs navigate Indian government startup schemes with clarity and confidence.
+                Udyara is a policy-aware AI assistant designed to help women entrepreneurs navigate Indian government startup schemes with clarity and confidence.
               </p>
               <br></br>
               <p className="text-gray-600 text-sm leading-relaxed max-w-md">

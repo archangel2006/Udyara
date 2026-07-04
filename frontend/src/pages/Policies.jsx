@@ -258,7 +258,7 @@ export default function Policies() {
                               to={`/agent?q=${encodeURIComponent(policy.query)}`}
                               className="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-5 py-2 rounded-md text-sm font-medium transition"
                             >
-                              Check Eligibility with Agent →
+                              Check Eligibility →
                             </Link>
 
                           </div>

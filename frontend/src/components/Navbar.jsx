@@ -62,7 +62,7 @@ export default function Navbar() {
             to="/agent"
             className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2.5 rounded-xl font-medium transition"
           >
-            Try Agent
+            Ask Assistant
           </NavLink>
         </div>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
             onClick={closeMenu}
             className="block bg-teal-700 text-white px-4 py-2 rounded-lg text-center mt-4"
           >
-            Try Agent
+            Ask Assistant
           </NavLink>
         </div>
       )}
