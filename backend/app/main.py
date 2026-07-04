@@ -3,9 +3,23 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.agent import ask_agent
+from app.rag.retriever import get_retriever
+from contextlib import asynccontextmanager
 import asyncio
 
-app = FastAPI(title="Udyara - Cultivating Women-Led Enterprises")
+# Pre-load the HuggingFace model + FAISS index at startup
+# so the first user request isn't slow.
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("🚀 Pre-loading retriever (HuggingFace model + FAISS)...")
+    await asyncio.to_thread(get_retriever)
+    print("✅ Retriever ready. Server accepting requests.")
+    yield
+
+app = FastAPI(
+    title="Udyara - Cultivating Women-Led Enterprises",
+    lifespan=lifespan
+)
 
 # CORS 
 app.add_middleware(
@@ -43,3 +57,4 @@ async def ask_policy(query: Query):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

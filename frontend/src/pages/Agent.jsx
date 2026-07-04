@@ -49,7 +49,7 @@ export default function ChatBot() {
       const errorMessage = {
         id: Date.now() + 2,
         type: 'bot',
-        text: "⚠️ Unable to connect to backend. Make sure FastAPI is running.",
+        text: `⚠️ ${error.message || "Unable to connect to backend. Make sure FastAPI is running."}`,
         timestamp: new Date(),
       };
 
