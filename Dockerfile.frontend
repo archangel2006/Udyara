@@ -1,0 +1,22 @@
+# ─────────────────────────────────────────────────────────────
+#  Udyara — Frontend Dockerfile (Local Dev)
+#  React + Vite dev server
+#  NOTE: For production, Vercel builds directly from the repo.
+#        This Dockerfile is only used for local docker compose.
+# ─────────────────────────────────────────────────────────────
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY frontend/package*.json ./
+RUN npm install
+
+# Copy source
+COPY frontend/ .
+
+EXPOSE 5173
+
+# Vite dev server — host 0.0.0.0 is set in vite.config.js
+CMD ["npm", "run", "dev"]

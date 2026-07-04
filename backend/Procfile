@@ -1,0 +1,4 @@
+# Procfile for Render (native Python deploy, non-Docker)
+# Render reads this automatically.
+# $PORT is injected by Render at runtime.
+web: uvicorn app.main:app --host 0.0.0.0 --port $PORT
