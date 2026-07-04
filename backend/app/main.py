@@ -62,5 +62,10 @@ async def ask_policy(query: Query):
         }
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        error_msg = str(e)
+        if "429" in error_msg or "quota" in error_msg.lower() or "limit" in error_msg.lower():
+            friendly_error = "The AI service is currently experiencing high traffic or has reached its request limit. Please try again in a minute."
+        else:
+            friendly_error = error_msg
+        raise HTTPException(status_code=500, detail=friendly_error)
 
