@@ -11,9 +11,9 @@ import asyncio
 # so the first user request isn't slow.
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🚀 Pre-loading retriever (HuggingFace model + FAISS)...")
+    print("[STARTUP] Pre-loading retriever (Gemini Embeddings + FAISS)...")
     await asyncio.to_thread(get_retriever)
-    print("✅ Retriever ready. Server accepting requests.")
+    print("[SUCCESS] Retriever ready. Server accepting requests.")
     yield
 
 app = FastAPI(

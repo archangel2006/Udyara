@@ -8,5 +8,3 @@ faiss-cpu
 pypdf
 python-dotenv
 langchain-google-genai
-sentence-transformers
-huggingface-hub

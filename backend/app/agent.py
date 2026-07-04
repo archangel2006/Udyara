@@ -5,7 +5,7 @@ import time
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 SYSTEM_PROMPT = """
 You are Udyara, a policy intelligence agent focused on supporting women entrepreneurs in India.
@@ -18,12 +18,12 @@ Answer ONLY from the provided policy context related to women-led startups, sche
 
 def ask_agent(question: str):
     start = time.time()
-    print("🔍 Retrieving documents...")
+    print("[SEARCH] Retrieving documents...")
 
     retriever = get_retriever()
     docs = retriever.invoke(question)
 
-    print(f"📄 Retrieved {len(docs)} chunks")
+    print(f"[SEARCH] Retrieved {len(docs)} chunks")
 
     context = "\n\n".join([d.page_content[:800] for d in docs])
 
@@ -39,10 +39,10 @@ Question:
 Answer clearly.
 """
 
-    print("🤖 Calling Gemini...")
+    print("[LLM] Calling Gemini...")
     response = model.generate_content(prompt)
 
-    print(f"✅ Gemini responded in {time.time() - start:.2f}s")
+    print(f"[SUCCESS] Gemini responded in {time.time() - start:.2f}s")
 
     # ✅ Extract sources from retrieved docs
     sources = []

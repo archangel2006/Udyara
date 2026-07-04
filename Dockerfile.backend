@@ -18,15 +18,6 @@ COPY backend/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# ── Pre-download sentence-transformers model (baked into image) ──
-# This avoids slow cold-start downloads on every container restart.
-# Model is cached to ~/.cache/huggingface inside the image (~90 MB).
-RUN python -c "\
-from sentence_transformers import SentenceTransformer; \
-print('Downloading all-MiniLM-L6-v2...'); \
-SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
-print('Model downloaded and cached.')"
-
 # Copy the entire backend (includes pre-built FAISS vectorstore)
 COPY backend/ .
 

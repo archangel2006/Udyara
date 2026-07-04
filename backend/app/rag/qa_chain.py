@@ -4,7 +4,7 @@ from app.rag.retriever import get_retriever
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 def ask_udyara(question: str):
     retriever = get_retriever()
