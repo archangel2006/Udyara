@@ -129,71 +129,91 @@ Udyara/
 └── README.md
 ```
 ---
-## ⚙️ Setup & Running (Prototype)
+## ⚙️ Running Locally
 
-### Backend Setup
+### Option 1 — Docker (Recommended, Single Command)
 
-1. Navigate to backend directory
+> **Prerequisites**: [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/udyara.git
+cd udyara
+
+# 2. Create your .env file (never commit this!)
+cp .env.example .env
+# Edit .env and add your real GEMINI_API_KEY
+
+# 3. Start everything — backend + frontend in one command
+docker compose up --build
+```
+
+- 🌐 Frontend → http://localhost:5173
+- ⚙️  Backend API → http://localhost:8000
+- 📖 Swagger UI → http://localhost:8000/docs
+
+> First build takes ~5 minutes (downloads model + dependencies). Subsequent runs use cached layers and start in seconds.
+
+---
+
+### Option 2 — Manual (without Docker)
+
+<details>
+<summary>Click to expand manual setup</summary>
+
+**Backend**
 ```bash
 cd backend
-```
-
-2. Create virtual environment
-```
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-```
-
-3. Install dependencies
-```
+.venv\Scripts\activate          # Windows
+# source .venv/bin/activate     # macOS/Linux
 pip install -r requirements.txt
-```
-
-4. Create .env file
-```
-GEMINI_API_KEY=your_api_key_here
-```
-5. Run the backend
-
-```
+# Create .env with GEMINI_API_KEY=your_key
 uvicorn app.main:app --reload
+# Running at http://127.0.0.1:8000
 ```
 
-6. API available at:
-
-- http://127.0.0.1:8000
-- Swagger UI: http://127.0.0.1:8000/docs
-
-
-### Frontend Setup
-
-1. Navigate to frontend directory
+**Frontend** (in a new terminal)
 ```bash
 cd frontend
-```
-
-2. Install dependencies
-```
 npm install
-```
-
-3. Run the frontend
-
-```
 npm run dev
+# Running at http://localhost:5173
+```
+</details>
+
+---
+
+## 🚀 Cloud Deployment (Free)
+
+Udyara deploys for free using **Render** (backend) + **Vercel** (frontend).
+
+```
+Browser → Vercel (React) → Render (FastAPI + RAG)
 ```
 
-4. Website running at
+### Backend → Render
 
-- http://localhost:5173/ 
+1. Push this repo to GitHub
+2. Go to [render.com](https://render.com) → **New** → **Web Service**
+3. Connect your GitHub repo
+4. Configure:
+   - **Root Directory**: *(leave blank — uses `render.yaml`)*
+   - **Runtime**: Docker
+   - **Dockerfile Path**: `./Dockerfile.backend`
+5. Add environment variable:
+   - `GEMINI_API_KEY` = your Gemini API key
+6. Click **Deploy** → copy the URL (e.g. `https://udyara-backend.onrender.com`)
 
-5. Explore frontend
+> ⚠️ Free tier spins down after 15 min of inactivity. First request after sleep takes ~30s.
 
-- **Try Agent**: to ask questions & instructions, interact with the agent
-- **Make sure backend & frontend are simultaneously running.**
+### Frontend → Vercel
 
-
-
+1. Go to [vercel.com](https://vercel.com) → **New Project** → import GitHub repo
+2. Set **Root Directory** to `frontend`
+3. Add environment variable:
+   - `VITE_API_URL` = `https://udyara-backend.onrender.com` *(your Render URL)*
+4. Click **Deploy** → your app is live! 🎉
 
 ---
 
@@ -212,4 +232,3 @@ npm run dev
 - Ensures zero hallucination with source-backed responses
 - Designed specifically for women entrepreneurs in India
 - Bridges the gap between policy availability and accessibility
-

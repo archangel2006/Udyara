@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────
+#  Udyara — Docker Compose
+#  Single command to run the full stack locally:
+#    docker compose up --build
+# ─────────────────────────────────────────────────────────────
+
+services:
+
+  # ── FastAPI Backend ────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: udyara-backend
+    ports:
+      - "8000:8000"
+    # Reads GEMINI_API_KEY from your local .env file
+    env_file:
+      - .env
+    environment:
+      - PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # ── React + Vite Frontend ──────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: udyara-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      # Browser-side requests go to localhost:8000 (host machine),
+      # not to the backend container name — VITE_ vars are inlined
+      # at Vite startup time and run in the user's browser.
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

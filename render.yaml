@@ -1,0 +1,23 @@
+# Render Blueprint — Udyara Backend
+# Docs: https://render.com/docs/blueprint-spec
+#
+# USAGE:
+#   1. Push this file to your GitHub repo root
+#   2. On Render dashboard → New → Blueprint → connect repo
+#   3. Set GEMINI_API_KEY in Render environment variables
+#   4. Deploy!
+
+services:
+  - type: web
+    name: udyara-backend
+    runtime: docker
+    # Render will look for Dockerfile.backend at repo root
+    dockerfilePath: ./Dockerfile.backend
+    # Free tier (spins down after 15 min inactivity)
+    plan: free
+    # Render sets $PORT automatically; our CMD uses ${PORT:-8000}
+    envVars:
+      - key: GEMINI_API_KEY
+        # Set this in the Render dashboard → Environment tab
+        # Do NOT hardcode your API key here!
+        sync: false

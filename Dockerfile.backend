@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────
+#  Udyara — Backend Dockerfile
+#  FastAPI + LangChain + FAISS + HuggingFace + Gemini
+# ─────────────────────────────────────────────────────────────
+
+FROM python:3.11-slim
+
+# System dependencies for building native Python packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Install Python dependencies first (better Docker layer caching)
+COPY backend/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# ── Pre-download sentence-transformers model (baked into image) ──
+# This avoids slow cold-start downloads on every container restart.
+# Model is cached to ~/.cache/huggingface inside the image (~90 MB).
+RUN python -c "\
+from sentence_transformers import SentenceTransformer; \
+print('Downloading all-MiniLM-L6-v2...'); \
+SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
+print('Model downloaded and cached.')"
+
+# Copy the entire backend (includes pre-built FAISS vectorstore)
+COPY backend/ .
+
+# Expose FastAPI port
+EXPOSE 8000
+
+# Use $PORT env var for Render compatibility; default to 8000 locally
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
