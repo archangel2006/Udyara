@@ -1,0 +1,36 @@
+# .dockerignore — keeps Docker build context small and fast
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python virtualenv
+.venv
+venv
+**/__pycache__
+**/*.pyc
+**/*.pyo
+
+# Node
+frontend/node_modules
+frontend/dist
+
+# Env files (secrets — never bake into images!)
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+
+# Docs / misc
+docs
+README.md
+*.md
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
